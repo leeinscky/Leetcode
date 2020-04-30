@@ -1,4 +1,11 @@
 import java.util.Arrays;
+//选择排序   选择最小的元素放在数组最前面
+
+/* https://blog.csdn.net/jianyuerensheng/article/details/51254311
+1. 对于给定的一组元素，经过第一轮比较后得到最小的元素，然后将该元素的位置与第一个元素的位置交换；
+2. 接着对不包括第一个元素以外的其他元素进行第二次比较，得到最小元素并与第二个位置的元素交换；
+3. 重复该过程，直到进行比较的元素只剩下一个为止。
+*/
 
 public class SelectSort {
 
@@ -12,7 +19,7 @@ public class SelectSort {
             // 将当前下标 定义为 最小值下标（因为我们还没找到最小值，所以先用当前值 作为 最小值）
             
             for (int j = currentIndex + 1; j < array.length; j++) {
-                if (array[j] > tempValue) {// array[j] < tempValue 从小到大排序；a[j] > tempValue 从大到小排序
+                if (array[j] < tempValue) {// array[j] < tempValue 从小到大排序；a[j] > tempValue 从大到小排序
                     tempValue = array[j]; //将最小值缓存到tempValue
                     miniValueIndex = j; // 如果有小于当前最小值的关键字将此关键字的下标赋值给miniValueIndex
                 }
@@ -28,6 +35,7 @@ public class SelectSort {
 
     public static void main(String[] args) {
         int array[] = { 12, 9, 14, 6, 14, 3, 7, 13, 5, 11, 1, 10, 8, 4, 2 };
+        //int array[] = { 0, 3 }; 
         selectSort(array);
         System.out.println(Arrays.toString(array));
     }
