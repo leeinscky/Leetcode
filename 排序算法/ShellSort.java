@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-//希尔排序
+//希尔排序（升级版的直接插入排序）
 
 public class ShellSort {
 
@@ -43,25 +43,25 @@ public class ShellSort {
     }
     */
 
-    
     public static void shellSortSmallToBig(int[] data) {
         int j = 0;
         int temp = 0; 
         for (int increment = data.length / 2; increment > 0; increment /= 2) { //如果数组有15个数，那么增量分别是：7 3 1
             for (int i = increment; i < data.length; i++) { //数组的第i个元素 靠右
                 temp = data[i]; //关键一步：将第i个元素的值存入缓存，此后无论第i个元素如何变化，缓存/temp的值都是一开始第i个元素的值。如果第i个元素的值比第j个元素的值小（右边的比左边的小），那么就要互换。那时候缓存的值就能派上用场。
-                for (j = i - increment; j >= 0; j -= increment) { //数组的第j个元素靠左，从0开始。和i的大小差距为 增量 的大小
+                for (j = i - increment; j >= 0; j -= increment) { //数组的第j个元素靠左，可能的起点（和i的大小差距为 增量
+                                                                  // 的大小）：0，1，2，3，4...。然后j会递减直到最后一次降为负数。
                     if (temp < data[j]) { //如果右边的值比左边的小 如果temp改为 data[i]，打印输出结果不对
                         data[j + increment] = data[j]; //将第j个元素 赋值给 第 (j+增量) 个元素： 左边的值 赋值给 右边相距increment的位置
                     } else {
                         break;
                     }
                 }
-                data[j + increment] = temp; // 将缓存的值（原先右边的值） 赋值给左边原先第i个的位置（因为j退出循环时已经是负数了，加上increment 正好是靠左的正数）
+                data[j + increment] = temp; // 将缓存的值(原先右边的值) 赋值给 左边原先第i个的位置（因为j的最后一个循环正好是：[i-增量]-增量 < 0 
+                //因此这条语句的 j+increment=i-增量 也就是左边的位置。j退出循环时已经是负数了，加上increment 正好是靠左的正数）
             }
         }
     }
-
 
     public static void main(String[] args) {
         int[] data = new int[] { 12, 9, 14, 6, 14, 3, 7, 13, 5, 11, 1, 10, 8, 4, 2 };
