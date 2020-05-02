@@ -1,5 +1,5 @@
 import java.util.Arrays;
-//选择排序   选择最小的元素放在数组最前面
+//简单选择排序   选择最小的元素放在数组最前面
 
 /* https://blog.csdn.net/jianyuerensheng/article/details/51254311
 1. 对于给定的一组元素，经过第一轮比较后得到最小的元素，然后将该元素的位置与第一个元素的位置交换；

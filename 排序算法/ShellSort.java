@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-//希尔排序（升级版的直接插入排序）
+//希尔排序（升级版的直接插入排序） ”缩小增量排序“（在直接插入排序的基础上加入缩小增量）
 
 public class ShellSort {
 
