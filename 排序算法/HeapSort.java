@@ -102,6 +102,7 @@ public class HeapSort {
 }
 
 /*
+
 开始构建堆- 执行buildHeap函数里的sink方法
 index:3   leftChild:7   rightChild:8    present:3 
 构建堆过程中- 此次i循环以后的数组 arr:[8, 2, 5, 9, 7, 3]
@@ -158,4 +159,5 @@ index:1   leftChild:3   rightChild:4    present:1此次i循环-元素下沉后�
 index:0   leftChild:1   rightChild:2    present:0此次i循环-元素下沉后的数组 arr:[2, 3, 5, 7, 8, 9]
  
 [2, 3, 5, 7, 8, 9] 
+
 */
