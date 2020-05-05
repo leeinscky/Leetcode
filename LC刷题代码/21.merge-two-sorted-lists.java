@@ -17,8 +17,7 @@
  */
 
 
-
- /*
+ /* ？？没有完全弄懂
  * 法一: https://www.cnblogs.com/grandyang/p/4086297.html
  * 这道混合插入有序链表和我之前那篇混合插入有序数组非常的相似 Merge Sorted Array，仅仅是数据结构由数组换成了链表而已，
  * 代码写起来反而更简洁。具体思想就是新建一个链表，然后比较两个链表中的元素值，把较小的那个链到新链表中，
@@ -26,7 +25,7 @@
  * 代码如下：
  */
 public class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) { 
         ListNode dummy = new ListNode(-1), cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
@@ -44,7 +43,6 @@ public class Solution {
 }
 
 
-
 /*
  * 法二: https://www.cnblogs.com/grandyang/p/4086297.html
  * 下面我们来看递归的写法，当某个链表为空了，就返回另一个。然后核心还是比较当前两个节点值大小，如果 l1 的小，那么对于 l1 的下一个节点和 l2
@@ -52,8 +50,9 @@ public class Solution {
  * l2.next，然后返回 l2，参见代码如下：
  */
 class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) { 
+    //问：方法声明里为什么没有void？答：因为此方法会返回一个链表类型（ListNode）的值，如果返回int类型的值，ListNode就会改为int
+        
         if (l1 == null)
             return l2;
         if (l2 == null)
