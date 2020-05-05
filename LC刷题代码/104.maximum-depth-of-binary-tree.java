@@ -39,6 +39,7 @@ class Solution {
 // @lc code=end
 
 
+
 //DFS 深度优先  LC官网讨论区
 class Solution {
 
@@ -73,6 +74,7 @@ class Solution {
 
 
 //BFS 广度优先搜索 LC官网讨论区
+// 图解：https://github.com/MisterBooo/LeetCodeAnimation/blob/master/0104-Maximum-
 class Solution {
 
     public int maxDepth(TreeNode root) {
@@ -100,6 +102,7 @@ class Solution {
     // 3ms
 
 }
+
 
 /*
  * https://github.com/grandyang/leetcode/issues/104
