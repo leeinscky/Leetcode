@@ -24,6 +24,8 @@
  * 由于两个输入链表的长度可能不同，所以最终会有一个链表先完成插入所有元素，则直接另一个未完成的链表直接链入新链表的末尾。
  * 代码如下：
  */
+
+ /*
 public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) { 
         ListNode dummy = new ListNode(-1), cur = dummy;
@@ -41,7 +43,7 @@ public class Solution {
         return dummy.next;
     }
 }
-
+*/
 
 /*
  * 法二: https://www.cnblogs.com/grandyang/p/4086297.html
