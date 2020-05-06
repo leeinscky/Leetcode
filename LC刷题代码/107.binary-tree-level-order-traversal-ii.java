@@ -90,7 +90,7 @@ public class Solution {
                 System.out.println("subList: " + Arrays.toString(subList.toArray() ) );
 
             }
-            wrapList.add(0, subList);
+            wrapList.add(0, subList); //因为我们想让新加的sublist 放在列表坐起第0个位置，所以我们要加一个参数0.
             System.out.println("wrapList: " + Arrays.toString(wrapList.toArray()));
 
         }
@@ -148,5 +148,5 @@ root: 3
 ' +
   'wrapList: [[15, 7], [9, 20], [3]]
 
-  
+
 */
