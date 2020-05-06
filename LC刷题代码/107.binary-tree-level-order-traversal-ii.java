@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.swing.tree.TreeNode;
 
-/* tree | breadth-first-search
+/*
  * @lc app=leetcode id=107 lang=java
  *
  * [107] Binary Tree Level Order Traversal II
@@ -27,9 +27,9 @@ import javax.swing.tree.TreeNode;
  */
 
 
+
 /*
-// DFS：
-public class Solution {
+public class Solution { //DFS
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
         levelMaker(wrapList, root, 0);
@@ -69,8 +69,8 @@ public class Solution {
         if (root == null)
             return wrapList;
 
-        queue.offer(root);
-        //System.out.println("queue" + queue);
+        queue.offer(root); //root其实是3
+        System.out.println("root: " + root.val);
 
         while (!queue.isEmpty()) {
             int levelNum = queue.size();
@@ -80,18 +80,18 @@ public class Solution {
 
                 if ( queue.peek().left != null)
                     queue.offer( queue.peek().left );
-                    System.out.println("queue.peek().left.val" + queue.peek().left.val);
+                    //System.out.println("queue.().left.val: " + queue.peek().left.val);
 
                 if ( queue.peek().right != null)
                     queue.offer( queue.peek().right );
-                    System.out.println("queue.peek().right.val" + queue.peek().right.val);
+                    //System.out.println("queue.peek().right.val: " + queue.peek().right.val);
 
                 subList.add(queue.poll().val);
-                System.out.println("subList" + Arrays.toString(subList.toArray() ) );
+                System.out.println("subList: " + Arrays.toString(subList.toArray() ) );
 
             }
             wrapList.add(0, subList);
-            System.out.println("wrapList" + Arrays.toString(wrapList.toArray()));
+            System.out.println("wrapList: " + Arrays.toString(wrapList.toArray()));
 
         }
         return wrapList;
@@ -101,3 +101,52 @@ public class Solution {
 
 // @lc code=end
 
+
+/*
+
+Your Input
+[3,9,20,null,null,15,7]
+
+Stdout
+root: 3
+' +
+  'queue.peek().left.val: 9
+' +
+  'queue.peek().right.val: 20
+' +
+  'subList: [3]
+' +
+  'wrapList: [[3]]
+
+
+Finished
+Your Input
+[3,9,20,null,null,15,7]
+
+Output (6 ms)
+[[15,7],[9,20],[3]]
+
+Expected Answer
+[[15,7],[9,20],[3]]
+
+Stdout
+root: 3
+' +
+  'subList: [3]
+' +
+  'wrapList: [[3]]
+' +
+  'subList: [9]
+' +
+  'subList: [9, 20]
+' +
+  'wrapList: [[9, 20], [3]]
+' +
+  'subList: [15]
+' +
+  'subList: [15, 7]
+' +
+  'wrapList: [[15, 7], [9, 20], [3]]
+
+  
+*/
