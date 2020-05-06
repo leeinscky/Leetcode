@@ -29,7 +29,7 @@ import javax.swing.tree.TreeNode;
  */
 
 
-//题解链接：https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/solution/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-s-15/
+//官方题解链接：https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/solution/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-s-15/
 
 // 方法一：中序遍历：始终选择中间位置左边元素作为根节点
 class Solution {
@@ -42,7 +42,7 @@ class Solution {
         // always choose left middle node as a root 考虑到数组可能有偶数个元素，始终选择中间位置左边元素作为根节点。右边元素也可以实现，都正确。
         int p = (left + right) / 2;
 
-        // inorder traversal: left -> node -> right
+        // inorder traversal: left -> node -> right  先序：preorder，中序：inorder 后序：postorder
         TreeNode root = new TreeNode(nums[p]); //创建根节点
         root.left = helper(left, p - 1);  // 递归创建左子树
         root.right = helper(p + 1, right);// 递归创建右子树
@@ -70,6 +70,8 @@ class Solution {
  */
 
 
+/*
+
 //方法二：中序遍历：始终选择中间位置右边元素作为根节点
 class Solution {
     int[] nums;
@@ -83,7 +85,7 @@ class Solution {
         if ((left + right) % 2 == 1)
             ++p;
 
-        // inorder traversal: left -> node -> right
+        // inorder traversal: left -> node -> right 
         TreeNode root = new TreeNode(nums[p]);
         root.left = helper(left, p - 1);
         root.right = helper(p + 1, right);
@@ -95,7 +97,7 @@ class Solution {
     return helper(0, nums.length - 1);
   }
 }
-
+*/
 
 /*
  * 复杂度分析
