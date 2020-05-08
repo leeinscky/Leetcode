@@ -7,11 +7,14 @@
 // @lc code=start
 import java.util.Arrays;
 
+
 /*
  *中国站方法一 （暴力法）: 合并后排序
  *最朴素的解法就是将两个数组合并之后再排序。该算法只需要一行(Java是2行)，时间复杂度较差，为O((n+m)log(n+m))。
  *这是由于这种方法没有利用两个数组本身已经有序这一点。
  */ 
+
+/*
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         //将nums2复制到nums1中，从nums2的位置0开始，复制到nums1的位置m，复制的长度为n。
@@ -19,6 +22,8 @@ class Solution {
         Arrays.sort(nums1);
     }
 }
+*/
+
 
 /*
  * 中国站方法二 : 双指针 / 从前往后 
@@ -56,6 +61,7 @@ class Solution {
 }
 
 
+
 /*
  * 中国站方法三 : 双指针 / 从后往前 
  * 方法二已经取得了最优的时间复杂度O(n +
@@ -65,6 +71,7 @@ class Solution {
  * 链接：https://leetcode-cn.com/problems/merge-sorted-array/solution/he-bing-liang
  * -ge-you-xu-shu-zu-by-leetcode/ 来源：力扣（LeetCode） 
  */
+/*
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         // two get pointers for nums1 and nums2
@@ -83,7 +90,7 @@ class Solution {
         System.arraycopy(nums2, 0, nums1, 0, p2 + 1);
     }
 }
-
+*/
 
 // @lc code=end
 
