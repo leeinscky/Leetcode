@@ -11,7 +11,8 @@ class Solution {
     public int[] plusOne(int[] digits) {
 
         int n = digits.length;
-        //从数组尾部开始向前循环遍历元素，如果元素值<9,就递增1；否则设为0
+        // 从数组尾部开始向前循环遍历元素，如果元素值<9,就递增1,并且在此处就直接返回digits值了！！不会继续进入下一个i循环；
+        // 如果元素值=9，那么该元素位置置为0，并且会继续执行下一个i循环，直到循环到某一个元素值<9才会返回最终结果。
         for (int i = n - 1; i >= 0; i--) {
             if (digits[i] < 9) { 
                 digits[i]++;
