@@ -28,6 +28,7 @@ class Solution {
         System.out.println("  " + q.next.next.val);
         
         int carry = 0;
+
         while (p != null || q != null) {
             int x = (p != null) ? p.val : 0;
             int y = (q != null) ? q.val : 0;
@@ -48,13 +49,11 @@ class Solution {
 
             if (p != null)
                 p = p.next; //移动到l1链表的下一个节点
-                if(p.val != null)
-                    System.out.print("--------循环最后-p.val: " + p.val);
+                System.out.print("--------循环最后-p.val: " + p.val);
 
             if (q != null)  
                 q = q.next; //移动到l2链表的下一个节点
-                if (q.val != null)
-                    System.out.println("     q.val: " + q.val);
+                System.out.println("     q.val: " + q.val);
 
         }
         if (carry > 0) {
@@ -73,3 +72,41 @@ class Solution {
 
 // @lc code=end
 
+/* 
+开始-dummyHead: 0
+' +
+  '开始p.val: 2  4  3  开始q.val: 5  6  4
+' +
+  '--------循环开始 第一个值x: 2    第二个值y: 5     进位值carry: 0     和sum: 7
+' +
+  '用于下一次循环的进位值 carry = sum / 10: 0
+' +
+  '新链表下一个节点值 curr.next.val: 7
+' +
+  '新链表当前节点值 curr.val: 7
+' +
+  '--------循环最后-p.val: 4     q.val: 6
+' +
+
+
+  '--------循环开始 第一个值x: 4    第二个值y: 6     进位值carry: 0     和sum: 10
+' +
+  '用于下一次循环的进位值 carry = sum / 10: 1
+' +
+  '新链表下一个节点值 curr.next.val: 0
+' +
+  '新链表当前节点值 curr.val: 0
+' +
+  '--------循环最后-p.val: 3     q.val: 4
+
+
+  
+' +
+  '--------循环开始 第一个值x: 3    第二个值y: 4     进位值carry: 1     和sum: 8
+' +
+  '用于下一次循环的进位值 carry = sum / 10: 0
+' +
+  '新链表下一个节点值 curr.next.val: 8
+' +
+  '新链表当前节点值 curr.val: 8
+*/
