@@ -60,7 +60,7 @@ class Solution {
                 continue;
 
             int curr = nums[i];
-            int L = i + 1, R = len - 1; //令左指针 L=i+1L=i+1，右指针 R=n-1R=n−1，当 L<R时，执行循环：
+            int L = i + 1, R = len - 1; //令左指针 L=i+1，右指针R=n−1，当 L<R时，执行循环：
             while (L < R) { 
                 int tmp = curr + nums[L] + nums[R];
                 if (tmp == 0) { // 当 nums[i]+nums[L]+nums[R]==0，执行循环，
