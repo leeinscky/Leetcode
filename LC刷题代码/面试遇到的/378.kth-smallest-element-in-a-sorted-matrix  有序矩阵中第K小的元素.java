@@ -1,67 +1,11 @@
-# 做题顺序
+/* binary-search | heap
+ * @lc app=leetcode id=378 lang=java
+ *
+ * [378] Kth Smallest Element in a Sorted Matrix
+ */
 
-适合连数据结构都不扎实的菜鸡选手～不要完全按tag！头一次刷，先把这五个tag做了：
+// @lc code=start
 
-**array，string，tree，linkedlist，math**
-
-其它的千万别按tag刷。这样不存在前面答案说的思维暗示问题，反而帮助巩固数据结构，还可以自己归纳某种数据结构的全部技巧～
-
-链接：https://www.zhihu.com/question/36738189/answer/95751126 来源：知乎
-
-
-# 做题记录（2020年）
-| 时间 | 题号|
-|:----: |:----:|
-| 4.29-5.9 | 十大排序算法, 1-3, 5, 7, 13, 21, 26, 27, 35, 53, 66, 88, 100, 101, 104, 107, 108, 110, 111 （数量：30）|
-| 5.10 | 11, 15, 17, 19, 20 |
-| 5.11 | 22, 31, 33, 34 |
-| 5.12 | 39, 136, 141, 160 |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-
-
-# 备忘录
-| 题号 | 笔记|
-|:----: |:----:|
-| 5 | 目前只写了暴力解法，其他的解法还有挺多，之后记得补上 |
-| 20 | 还没有完全看完 |
-| 22 | 没弄懂 |
-| 34 | 没看完 |
-| 39 | 没看完 |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-|     |     |
-
-
-# 重要链接
-| 主题 | 笔记/链接 |
-|:----: |:----:|
-| 二分查找 | https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-suan-fa-xi-jie-xiang-jie-by-labula/ |
-| B+树 | * [漫画叙述B+树和B-树，很值得看!_网络_菜鸟不会飞-CSDN博客](https://blog.csdn.net/qq_35571554/article/details/82759668?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase) |
-
-
-
-# 面试记录
-| 面试公司和岗位 | 面试考察内容 |
-
-## 商汤科技 | LC-378: 有序矩阵中第K小的元素
-有序矩阵 找第k个最小值 （LC-378）
-参考答案：
-```java
 /*
 思路：
 1.找出二维矩阵中最小的数left，最大的数right，那么第k小的数必定在left~right之间
@@ -69,9 +13,10 @@
 3.若这个count小于k，表明第k小的数在右半部分且不包含mid，即left=mid+1, right=right，又保证了第k小的数在left~right之间
 4.若这个count大于k，表明第k小的数在左半部分且可能包含mid，即left=left, right=mid，又保证了第k小的数在left~right之间
 5.因为每次循环中都保证了第k小的数在left~right之间，当left==right时，第k小的数即被找出，等于right
-
-注意：这里的left mid right是数值，不是索引位置。
 */
+
+/*
+//注意：这里的left mid right是数值，不是索引位置。
 public class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         //lo:矩阵中最小的数 hi：矩阵中最大的数
@@ -101,10 +46,8 @@ public class Solution {
         return lo;
     }
 }
-```
+*/
 
-解法2:
-```java
 /* 解法2: 优先队列
 思路分析：
 https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/378java-er-fen-fa-tu-jie-you-xian-dui-lie-liang-ch/
@@ -144,53 +87,5 @@ public class Solution {
  * 接口的版本相似会抛出异常，但是新的 poll() 方法在用空集合调用时只是返回 null。因此新的方法更适合容易出现异常条件的情况。
  */
 
-```
+// @lc code=end
 
-
-
-## 百度 NLP | LC-240: 搜索mxn矩阵中的一个目标值target
-从列表中找到某个目标值（我的思路：https://leetcode-cn.com/problems/search-a-2d-matrix-ii/solution/sou-suo-er-wei-ju-zhen-ii-by-leetcode-2/）
-
-
-## 滴滴 
-[1, 2, 7, 3, 4, 6, 4]  2个数的和等于某一个数的所有组合。
-```java
-list = [4, 6, 4] 
-sum = 10
-//正解：
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    return new int[] { i, j };
-                }
-            }
-        }
-        throw new IllegalArgumentException("No two sum solution");
-    }
-}
-``` 
-
-## 商汤 容器平台 云平台开发工程师 
-问题：[1, 2, 7, 3, 4, 6, 4] 找出2个数的和等于某一个数的所有组合。
-```java
-list = [4, 6, 4] 
-sum = 10
-//正解：
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    return new int[] { i, j };
-                }
-            }
-        }
-        throw new IllegalArgumentException("No two sum solution");
-    }
-}
-``` 
-
-## 旷视科技 
-1-10000  找出所有质数的思想
