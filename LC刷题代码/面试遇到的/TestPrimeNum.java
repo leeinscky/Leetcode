@@ -22,3 +22,5 @@ public class TestPrimeNum {
         System.out.println("经历的时间为：" + (end02 - start02));
     }
 }
+
+
