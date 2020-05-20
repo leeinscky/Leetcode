@@ -15,7 +15,7 @@ public class HeapSort {
     public static void sort(int[] arr) {
         int length = arr.length;
         buildHeap(arr, length);// 原始序列构成的堆是无序的，根据给定的原始序列构建一个大顶堆，上面的节点值比下面的大
-        System.out.println("成功构建堆以后的数组 arr:" + Arrays.toString(arr));
+        //System.out.println("成功构建堆以后的数组 arr:" + Arrays.toString(arr));
         //System.out.println(" ");
 
         for ( int i = length - 1; i > 0; i-- ) {
@@ -29,6 +29,7 @@ public class HeapSort {
             length--; // 数组长度-1 隐藏堆尾元素
             //System.out.println("开始执行 sort 函数里的sink方法");
             //System.out.println("元素下沉前 堆顶堆尾互换后的数组 arr:" + Arrays.toString(arr));
+            
             sink(arr, 0, length); // 堆顶元素和末位元素互换以后的堆从有序变为了无序。通过继续调用sink()函数将长度减少1的新数组进行排序构成大顶堆（父节点都比孩子节点的值大）由于堆要时刻保持一个规则特性：每个子节点的值都比父节点小，所以一旦堆里面的数据发生变化，我们必须对堆重新进行一次构建（通过sink函数重新构建）
             //sink函数使用0参数的原因：重新构建大顶堆的时候我们从上（顶）至下（底）开始构建
             //System.out.println("此次i循环-元素下沉后的数组 arr:" + Arrays.toString(arr));
@@ -38,13 +39,12 @@ public class HeapSort {
     }
 
     private static void buildHeap(int[] arr, int length) {
-        for (int i = length / 2; i >= 0; i--) { //i:父节点 父节点逐渐变小，往数组的左边前进。使用循环的作用：因为构建堆的过程中 我们需要从下至上使得大元素往堆顶走，也就是往数组的左边走。
-
+        //i:父节点 父节点逐渐变小，往数组的左边前进。使用循环的作用：因为构建堆的过程中 我们需要从下至上使得大元素往堆顶走，也就是往数组的左边走。
+        for (int i = length / 2; i >= 0; i--) { 
             //System.out.println("开始构建堆- 执行buildHeap函数里的sink方法");
             sink(arr, i, length);
             //System.out.println("构建堆过程中- 此次i循环以后的数组 arr:" + Arrays.toString(arr));
             //System.out.println(" ");
-
         }
     }
 
@@ -66,7 +66,7 @@ public class HeapSort {
         //System.out.print("   arr[leftChild]:" + arr[leftChild]);
         //System.out.print("   arr[rightChild]:" + arr[rightChild]);
 
-        if (leftChild < length && arr[leftChild] > arr[present]) { // 下沉左边
+        if (leftChild < length && arr[leftChild] > arr[present]) { // 下沉左边：将当前节点和左子节点互换位置
             present = leftChild;
         }
         
@@ -74,7 +74,7 @@ public class HeapSort {
             present = rightChild;
         }
 
-        System.out.print("    present:" + present);
+        //System.out.print("    present:" + present);
 
         if (present != index) {// 如果下标不相等 证明下标调换过了，但是我们还没有调换下标对应的值，所以我们调换 arr[index] 和 arr[present]
             //交换值 交换arr[index] 和 arr[present]
@@ -82,21 +82,17 @@ public class HeapSort {
             arr[index] = arr[present];
             arr[present] = temp;
 
-            System.out.println(" 更新后的arr:" + Arrays.toString(arr));
-
+            //System.out.println(" 更新后的arr:" + Arrays.toString(arr));
+            
             //继续下沉
             sink(arr, present, length);
-
         }
-
-
     }
-
 
     public static void main(String[] args) {
         int[] data = new int[] {  8, 2, 5, 9, 7, 3 };
         sort(data);
-        System.out.println(Arrays.toString(data));
+        //System.out.println(Arrays.toString(data));
     }
 
 }
