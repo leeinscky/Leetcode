@@ -14,6 +14,7 @@ import java.util.Arrays;
 因此可以看出，归并排序算法比较占用内存，但却是效率高且稳定的排序算法。
 */
 
+
 /*
 工作原理：
 （1）申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列 
@@ -26,26 +27,29 @@ import java.util.Arrays;
 原文链接：https://blog.csdn.net/jianyuerensheng/article/details/51262984
 */
 
+
 public class MergeSort {
 
     public static void mergeSort(int[] a, int low, int high) {
         int mid = (low + high) / 2;
         if (low < high) {
-            // 左边
-            mergeSort(a, low, mid);
-            // 右边
-            mergeSort(a, mid + 1, high);
-            // 左右归并
-            merge(a, low, mid, high);
+            // 递归的将前半部分数据和后半部分的数据各自归并排序
+            mergeSort(a, low, mid);// 左边
+            mergeSort(a, mid + 1, high); // 右边
+
+            // 使用merge合并算法将两部分序列合并到一起成为我们想要得到的那个序列。
+            merge(a, low, mid, high); // 左右归并
             System.out.println(Arrays.toString(a));
         }
     }
+
 
     public static void merge(int[] a, int low, int mid, int high) {
         int[] temp = new int[high - low + 1];
         int i = low;// 左指针
         int j = mid + 1;// 右指针
         int k = 0;
+
         // 把较小的数先移到新数组中
         while (i <= mid && j <= high) {
             if (a[i] <= a[j]) {
@@ -54,7 +58,7 @@ public class MergeSort {
                 temp[k++] = a[j++];
             }
         }
-        /*
+        /* 
          * 因为在合并的时候我们并不知道左右的两个数组哪个会剩余，所以为了确保不遗漏元素，我们对左右两个数组都执行移入新数组的操作。如果某一个数组内的元素是0，
          * 说明之前的指针已经移到了序列尾，所以并不会进入while循环。但是我们要把两个while都写上。这样如果左边序列有剩余就进入第一个while，
          * 如果右边序列有剩余就进入第二个while循环
@@ -68,7 +72,10 @@ public class MergeSort {
         while (j <= high) {
             temp[k++] = a[j++];
         }
-        // 把新数组temp中的所有数字元素覆盖a数组中的所有元素位置，因为temp只是个缓存，但我们想让a数组变化，所以要变化。如果不进行这一步，a数组从头到尾一直没变化，所以打印输出显示a数组一直都是原始数组的顺序，从头到尾没有变化。
+        /*
+         * 把新数组temp中的所有数字元素覆盖a数组中的所有元素位置，因为temp只是个缓存，但我们想让a数组变化，所以要变化。
+         * 如果不进行这一步，a数组从头到尾一直没变化，所以打印输出显示a数组一直都是原始数组的顺序，从头到尾没有变化。
+         */
         for (int k2 = 0; k2 < temp.length; k2++) {
             a[k2 + low] = temp[k2];
         }

@@ -16,7 +16,7 @@ public class BubbleSort {
     public static void bubbleSort(int[] array) {
 
         int temp;
-        for (int i = array.length - 1; i >= 0 ; i--) {
+        for (int i = array.length - 1; i >= 0 ; i--) { //外层循环从右往左移动，因为每次循环右边就会多一个固定的已经排好的元素，但是左边仍然无序
             for (int j =0; j < i; j++) { // 每一轮都找到一个最大的数放在右边
 
                 if (array[j] > array[j + 1]) { //大的数往右移
@@ -26,9 +26,7 @@ public class BubbleSort {
                 }
             }
             System.out.println(Arrays.toString(array));
-
         }
-
     }
 
     public static void main(String[] args) {

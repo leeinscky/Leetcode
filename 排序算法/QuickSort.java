@@ -41,15 +41,15 @@ public class QuickSort{
             while (i < j) //while 和 if 的区别：while 的条件只要一直满足，程序就会一直执行while里面的语句直至不满足以后才会退出循环
             // if (i < j)
             {
-                while (i < j && numsArray[j] >= pivot) {//此while的作用：从右向左循环 直到 找到 所有小于x的数
+                while (i < j && numsArray[j] >= pivot) {//此while的作用：从右向左循环 直到 找到 小于x的数
                     j--;
                 }
-                numsArray[i] = numsArray[j];
+                numsArray[i] = numsArray[j];//把小于基准数的元素调到左边
 
-                while (i < j && numsArray[i] < pivot) {//此while的作用：从左向右循环 直到 找到 所有大于等于x的数
+                while (i < j && numsArray[i] < pivot) {//此while的作用：从左向右循环 直到 找到 大于等于x的数
                     i++;
                 }
-                numsArray[j] = numsArray[i];
+                numsArray[j] = numsArray[i];// 把大于基准数的元素调到右边
             } //退出此while循环时程序只做到了“基准数左边的数都 < 基准数，右边的数都 >= 基准数”。因此需要后续的语句来递归调用，继续对基准数左边/右边的所有数进行排序，
 
             numsArray[i] = pivot; //如果删去下面的两行递归调用，输出结果：[2, 9, 4, 6, 8, 3, 7, 10, 5, 11, 1, 12, 13, 14, 14]，即只做到了“基准数左边的数都 < 基准数，右边的数都 >= 基准数”。
@@ -58,6 +58,7 @@ public class QuickSort{
         }
         return numsArray;
     }
+
 
     public static void main( String[] args){
         int[] nums_array = {12, 9, 14, 6, 14, 3, 7, 13, 5, 11, 1, 10, 8, 4, 2};//打印输出：[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14]

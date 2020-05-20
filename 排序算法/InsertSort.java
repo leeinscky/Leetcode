@@ -23,7 +23,6 @@ public class InsertSort {
         }
     }
 
-
     public static void main(String[] args) {
         int array[] = { 12, 9, 14, 6, 14, 3, 7, 13, 5, 11, 1, 10, 8, 4, 2 };
         //int array[] = { 3 };

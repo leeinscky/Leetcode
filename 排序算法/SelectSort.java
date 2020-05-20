@@ -13,7 +13,7 @@ public class SelectSort {
         if (array == null || array.length <= 0) {
             return;
         }
-        for (int currentIndex = 0; currentIndex < array.length-1; currentIndex++) {
+        for (int currentIndex = 0; currentIndex < array.length-1; currentIndex++) {//外层循环：当前值，从左到右
             int tempValue = array[currentIndex], miniValueIndex = currentIndex; 
             // 将当前值 赋值给 缓存值（用于之后的数来和缓存值进行大小比较） 
             // 将当前下标 定义为 最小值下标（因为我们还没找到最小值，所以先用当前值 作为 最小值）
@@ -25,7 +25,7 @@ public class SelectSort {
                 }
             }
 
-            if (miniValueIndex != currentIndex) { // 将数组里的最小值和当前循环到的数 交换，因为从当前数从最左边开始循环，所以也就是把最小值放在数组的最前面，然后逐步往数组的后面推进。
+            if (miniValueIndex != currentIndex) { //将数组里的最小值和当前循环到的数 交换，因为从当前数从最左边开始循环，所以也就是把最小值放在数组的最前面，然后逐步往数组的后面推进。
                 array[miniValueIndex] = array[currentIndex]; //当前值 赋值给 最小值所在位置： 将当前循环到的（当前值）赋值给 搜索到的最小值所在的位置（最小值所在的位置）
                 array[currentIndex] = tempValue; //最小值 赋值给 当前值所在的位置
             }

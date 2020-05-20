@@ -16,23 +16,23 @@ public class HeapSort {
         int length = arr.length;
         buildHeap(arr, length);// 原始序列构成的堆是无序的，根据给定的原始序列构建一个大顶堆，上面的节点值比下面的大
         System.out.println("成功构建堆以后的数组 arr:" + Arrays.toString(arr));
-        System.out.println(" ");
+        //System.out.println(" ");
 
         for ( int i = length - 1; i > 0; i-- ) {
-            System.out.println("数组长度 i = " + i);
-            System.out.println("元素下沉前的初始数组 arr:" + Arrays.toString(arr));
+            //System.out.println("数组长度 i = " + i);
+            //System.out.println("元素下沉前的初始数组 arr:" + Arrays.toString(arr));
 
             //将堆顶元素与末位元素调换
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
             length--; // 数组长度-1 隐藏堆尾元素
-            System.out.println("开始执行 sort 函数里的sink方法");
-            System.out.println("元素下沉前 堆顶堆尾互换后的数组 arr:" + Arrays.toString(arr));
+            //System.out.println("开始执行 sort 函数里的sink方法");
+            //System.out.println("元素下沉前 堆顶堆尾互换后的数组 arr:" + Arrays.toString(arr));
             sink(arr, 0, length); // 堆顶元素和末位元素互换以后的堆从有序变为了无序。通过继续调用sink()函数将长度减少1的新数组进行排序构成大顶堆（父节点都比孩子节点的值大）由于堆要时刻保持一个规则特性：每个子节点的值都比父节点小，所以一旦堆里面的数据发生变化，我们必须对堆重新进行一次构建（通过sink函数重新构建）
             //sink函数使用0参数的原因：重新构建大顶堆的时候我们从上（顶）至下（底）开始构建
-            System.out.println("此次i循环-元素下沉后的数组 arr:" + Arrays.toString(arr));
-            System.out.println(" ");
+            //System.out.println("此次i循环-元素下沉后的数组 arr:" + Arrays.toString(arr));
+            //System.out.println(" ");
 
         }
     }
@@ -40,10 +40,10 @@ public class HeapSort {
     private static void buildHeap(int[] arr, int length) {
         for (int i = length / 2; i >= 0; i--) { //i:父节点 父节点逐渐变小，往数组的左边前进。使用循环的作用：因为构建堆的过程中 我们需要从下至上使得大元素往堆顶走，也就是往数组的左边走。
 
-            System.out.println("开始构建堆- 执行buildHeap函数里的sink方法");
+            //System.out.println("开始构建堆- 执行buildHeap函数里的sink方法");
             sink(arr, i, length);
-            System.out.println("构建堆过程中- 此次i循环以后的数组 arr:" + Arrays.toString(arr));
-            System.out.println(" ");
+            //System.out.println("构建堆过程中- 此次i循环以后的数组 arr:" + Arrays.toString(arr));
+            //System.out.println(" ");
 
         }
     }
@@ -59,9 +59,9 @@ public class HeapSort {
         int leftChild = 2 * index + 1;//左子节点下标
         int rightChild = 2 * index + 2;//右子节点下标
         int present = index;//要调整的节点下标
-        System.out.print("index:" + index);
-        System.out.print("   leftChild:" + leftChild);
-        System.out.print("   rightChild:" + rightChild);
+        //System.out.print("index:" + index);
+        //System.out.print("   leftChild:" + leftChild);
+        //System.out.print("   rightChild:" + rightChild);
         //System.out.print("    arr[present]:" + arr[present]);
         //System.out.print("   arr[leftChild]:" + arr[leftChild]);
         //System.out.print("   arr[rightChild]:" + arr[rightChild]);
