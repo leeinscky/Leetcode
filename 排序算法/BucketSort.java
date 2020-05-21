@@ -91,7 +91,7 @@ public class BucketSort {
     public static void bucketSort(int[] data, int min, int max) {  
         // 缓存数组  
         int[] tmp = new int[data.length];  
-        System.out.println("缓存数组: " + Arrays.toString(tmp));
+        //ystem.out.println("缓存数组: " + Arrays.toString(tmp));
 
         // buckets用于记录待排序元素的信息  
         // buckets数组定义了max-min个桶  
@@ -111,7 +111,7 @@ public class BucketSort {
         //System.out.println("buckets: " + Arrays.toString(buckets));
 
         // 将data中的元素完全复制到tmp数组中  
-        System.arraycopy(data, 0, tmp, 0, data.length);  
+        //System.arraycopy(data, 0, tmp, 0, data.length);  
         
         // 根据buckets数组中的信息将待排序列的各元素放入相应位置  
         for (int k = data.length - 1; k >= 0; k--) {  

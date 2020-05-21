@@ -15,7 +15,7 @@ public class RadixSort {
     public static void sort(int[] arr){
         int length = arr.length;
 
-        //最大值
+        //找到数组里的最大值
         int max = arr[0];
         for(int i = 0;i < length;i++){
             if(arr[i] > max){
@@ -32,29 +32,28 @@ public class RadixSort {
         for(int i = 0; i < 10; i++){
             bucketList.add(new ArrayList<Integer> ()); //一共10个i循环，每次循环都会往bucketList里添加一个空的数组（整数型），因此一共10个数组，从左到右分别代表余数0-9
         }
-        System.out.println("bucketList-0: " + bucketList);
+        //System.out.println("bucketList-0: " + bucketList);
 
         while(true){
-
             //判断是否排完
             int dd = (int)Math.pow(10, (location - 1)); //dd的作用是帮助我们分别比较每个数的个位数(d=1)，十位数(d=10)，百位数(d=100)，千位数(d=1000)... 
             if(max < dd){ //如果max=9999，只要dd=10000，就说明我们已经根据个位数，十位数，百位数，千位数，万位数的排序，不需要再在此while循环里执行剩余语句了。
                 break;
             }
-            System.out.print("  location: " + location);
-            System.out.print("  dd: " + dd);
+            //System.out.print("  location: " + location);
+            //System.out.print("  dd: " + dd);
 
             //将数据写入桶用于排序
             for(int i = 0; i < length; i++){
                 //计算余数 放入相应的桶
                 int number = ((arr[i] / dd) % 10); // 计算出来的number代表桶的id，如果number=1，代表将数据放入第二个（id=1）桶里面
 
-                System.out.print("    arr[i]: " + arr[i]);
-                System.out.println("    number: " + number);
+                //System.out.print("    arr[i]: " + arr[i]);
+                //System.out.println("    number: " + number);
 
                 bucketList.get(number).add(arr[i]); //先通过get(number)确定桶号，然后再通过add(arr[i]将此次循环的数组元素arr[i]放入该桶中
             }
-            System.out.println("    bucketList-1: " + bucketList);
+            //System.out.println("    bucketList-1: " + bucketList);
 
             //将桶内的数据写回数组
             int nn = 0;
@@ -67,7 +66,7 @@ public class RadixSort {
                 //截止到这，我们已经完成了针对于某一位数的一次排序，接下来我们会清空桶列表用于下一个位数的排序。
                 bucketList.get(i).clear(); // 清空桶列表用于下一个位数的排序
             }
-            System.out.println("    bucketList-2: " + bucketList);
+            //System.out.println("    bucketList-2: " + bucketList);
 
             location++; //location：位数（个位数：location=1，十位数：location=2，百位数：location=3）
         }
@@ -77,10 +76,9 @@ public class RadixSort {
     public static void main(String[] args) {
         int[] data = new int[] { 892, 846, 821, 199, 810, 700 };
         sort(data);
-        System.out.println(Arrays.toString(data));
+        //System.out.println(Arrays.toString(data));
     }
-
-
+    
 }
 
 
