@@ -1,7 +1,5 @@
 import java.util.Arrays;
-
 //冒泡排序   按顺序两两比较，每一轮都会使最大的那个数移动到数组最右边，逐渐累加 
-
 //基本思想：持续比较相邻的元素。如果第一个比第二个大，就交换他们两个。直到没有任何一对数字需要比较。
 
 /* https://zhuanlan.zhihu.com/p/34168443 
@@ -17,7 +15,7 @@ public class BubbleSort {
 
         int temp;
         for (int i = array.length - 1; i >= 0 ; i--) { //外层循环从右往左移动，因为每次循环右边就会多一个固定的已经排好的元素，但是左边仍然无序
-            for (int j =0; j < i; j++) { // 每一轮都找到一个最大的数放在右边
+            for (int j =0; j < i; j++) { //内层循环从左往右移，每一轮都找到一个最大的数放在右边
 
                 if (array[j] > array[j + 1]) { //大的数往右移
                     temp = array[j];
@@ -25,12 +23,12 @@ public class BubbleSort {
                     array[j + 1] = temp; 
                 }
             }
-            System.out.println(Arrays.toString(array));
+            //System.out.println(Arrays.toString(array));
         }
     }
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         int array[] = { 12, 9, 14, 6, 14, 3, 7, 13, 5, 11, 1, 10, 8, 4, 2 };
         bubbleSort(array);
         System.out.println(Arrays.toString(array));

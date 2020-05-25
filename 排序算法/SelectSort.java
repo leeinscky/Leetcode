@@ -18,7 +18,7 @@ public class SelectSort {
             // 将当前值 赋值给 缓存值（用于之后的数来和缓存值进行大小比较） 
             // 将当前下标 定义为 最小值下标（因为我们还没找到最小值，所以先用当前值 作为 最小值）
             
-            for (int j = currentIndex + 1; j < array.length; j++) {
+            for (int j = currentIndex + 1; j < array.length; j++) { //内层循环：当前索引+1，从左到右
                 if (array[j] < tempValue) {// array[j] < tempValue 从小到大排序；a[j] > tempValue 从大到小排序
                     tempValue = array[j]; //将最小值缓存到tempValue
                     miniValueIndex = j; // 如果有小于当前最小值的关键字将此关键字的下标赋值给miniValueIndex
@@ -29,7 +29,7 @@ public class SelectSort {
                 array[miniValueIndex] = array[currentIndex]; //当前值 赋值给 最小值所在位置： 将当前循环到的（当前值）赋值给 搜索到的最小值所在的位置（最小值所在的位置）
                 array[currentIndex] = tempValue; //最小值 赋值给 当前值所在的位置
             }
-            System.out.println(Arrays.toString(array));
+            //System.out.println(Arrays.toString(array));
         }
     }
 

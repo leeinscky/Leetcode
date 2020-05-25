@@ -19,7 +19,7 @@ public class InsertSort {
             }
             array[j + 1] = insertData;// 直到要插入的元素不小于第j个元素,将insertData插入到数组中
 
-            System.out.println(Arrays.toString(array));
+            //System.out.println(Arrays.toString(array));
         }
     }
 
