@@ -28,7 +28,6 @@ public class HeapSort {
             // 堆顶元素和末位元素互换以后的堆从有序变为了无序。通过继续调用sink()函数将长度减少1的新数组进行排序构成大顶堆（父节点都比孩子节点的值大）
             // 由于堆要时刻保持一个规则特性：每个子节点的值都比父节点小，所以一旦堆里面的数据发生变化，我们必须对堆重新进行一次构建（通过sink函数重新构建）
             // sink函数使用0参数的原因：重新构建大顶堆的时候我们从上（顶）至下（底）开始构建
-
         }
     }
 
@@ -38,6 +37,7 @@ public class HeapSort {
             sink(arr, i, arrayLength);
         }
     }
+    
     // arr数组  index调整位置  arrayLength数组范围
     private static void sink(int[] arr, int index, int arrayLength) {
 
