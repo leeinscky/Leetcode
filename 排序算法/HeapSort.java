@@ -32,25 +32,24 @@ public class HeapSort {
         }
     }
 
-    private static void buildHeap(int[] arr, int length) {
+    private static void buildHeap(int[] arr, int arrayLength) {
         // i:父节点 父节点逐渐变小，往数组的左边前进。使用循环的作用：因为构建堆的过程中 我们需要从下至上使得大元素往堆顶走，也就是往数组的左边走。
-        for (int i = length / 2; i >= 0; i--) {
-            sink(arr, i, length);
-
+        for (int i = arrayLength / 2; i >= 0; i--) {
+            sink(arr, i, arrayLength);
         }
     }
-    //@param arr数组    @param index调整位置  @param length数组范围
-    private static void sink(int[] arr, int index, int length) {
+    // arr数组  index调整位置  arrayLength数组范围
+    private static void sink(int[] arr, int index, int arrayLength) {
 
         int leftChild = 2 * index + 1;// 左子节点下标
         int rightChild = 2 * index + 2;// 右子节点下标
         int present = index;// 要调整的节点下标
 
-        if (leftChild < length && arr[leftChild] > arr[present]) { // 下沉左边：将当前节点和左子节点互换位置
+        if (leftChild < arrayLength && arr[present] < arr[leftChild] ) { // 下沉左边：如果当前节点< 左子节点。将当前节点和左子节点互换位置
             present = leftChild;
         }
 
-        if (rightChild < length && arr[rightChild] > arr[present]) { // 下沉右边
+        if (rightChild < arrayLength && arr[present] < arr[rightChild]) { // 下沉右边
             present = rightChild;
         }
 
@@ -60,7 +59,7 @@ public class HeapSort {
             arr[index] = arr[present];
             arr[present] = temp;
 
-            sink(arr, present, length);// 继续下沉
+            sink(arr, present, arrayLength);// 继续下沉
         }
     }
 
