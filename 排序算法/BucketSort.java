@@ -3,10 +3,7 @@
 
 //桶排序可以看成是计数排序的升级版，它将要排的数据分到多个有序的桶里，每个桶里的数据再单独排序，再把每个桶的数据依次取出，即可完成排序。
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-
 /*
 public class BucketSort {
 // https://juejin.im/post/5cff49e75188257a6b40de80
@@ -82,7 +79,6 @@ public class BucketSort {
 }
 
 */
-
 
 public class BucketSort {
 // https://zhuanlan.zhihu.com/p/34168443
