@@ -18,7 +18,7 @@ public class HeapSort {
         buildHeap(arr, length);// 原始序列构成的堆是无序的，根据给定的原始序列构建一个大顶堆，上面的节点值比下面的大
 
         for (int i = length - 1; i > 0; i--) {
-            // 将堆顶元素与末位元素调换
+            // 将堆顶元素arr[0] 与末位元素arr[i] 调换
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
