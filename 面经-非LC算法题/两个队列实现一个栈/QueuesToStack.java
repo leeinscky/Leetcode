@@ -23,7 +23,7 @@ import java.util.Queue;
     //压入：入栈非空的队列
     public boolean push(T t) {
         if (!queue1.isEmpty()) {
-            return queue1.offer(t);
+            return queue1.offer(t);// offer：添加元素
         } else {
             return queue2.offer(t);
         }
@@ -37,7 +37,7 @@ import java.util.Queue;
         
         if (!queue1.isEmpty() && queue2.isEmpty()) { //q1非空 q2空 （q1的前n-1个元素压入q2）
             while (queue1.size() > 1) {
-                queue2.offer(queue1.poll());
+                queue2.offer(queue1.poll()); // 返回第一个元素，并在队列中删除
             }
             return queue1.poll(); //弹出q1剩下的最后一个元素
         }
